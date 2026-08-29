@@ -1,0 +1,21 @@
+name = "atm"
+version = "1.0.0"
+
+description = "The ATM protocol from Laumann, Munksgaard and Larsen, as a pacta session type"
+
+[dependencies]
+gleam_stdlib = ">= 0.44.0 and < 2.0.0"
+gleam_erlang = ">= 1.3.0 and < 2.0.0"
+pacta = { path = "../../" }
+# The machine and client sides drive their protocol positions from a
+# `gen_statem`, so they import `eparch/state_machine` directly rather than
+# reaching it through pacta.
+eparch = ">= 1.0.0 and < 3.0.0"
+
+[dev_dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"
+# Only the generator driver in test/ uses these: the protocol layer emits
+# strings and never touches a file system, so putting them on disk is the
+# project's job rather than the library's.
+simplifile = ">= 2.0.0 and < 3.0.0"
+argv = ">= 1.0.0 and < 2.0.0"
